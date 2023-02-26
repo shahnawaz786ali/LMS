@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block title %}Student Form{% endblock %}
+{% block body %}
+<section id="teacher-body">
+    <div class="teacher-form">
+        <img alt="" class="avatar" src="/static/Images/user_avatar.png">
+        <h2>Registration Form</h2>
+        <form action="{% url 'users:user_teacher' %}" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+            {% comment %} <p>First Name</p><input placeholder="First name" type="text" id="fisrt_name" name="first_name" required>
+            <p>Middle Name</p><input placeholder="Middle name" type="text" id="middle_name" name="middle_name">
+            <p>Last Name</p><input placeholder="Last name" type="text" id="last_name" name="last_name" required>
+            <p>Email</p><input placeholder="Enter your email" type="email" id="email" name="email" required>
+            <p>Password</p><input placeholder="Enter your password" type="password" id="pwd1" name="pwd1" required>
+            <p>Confirm Password</p><input placeholder="Confirm your password" type="password" id="pwd2" name="pwd2" required>
+            <p>Mobile</p><input placeholder="Your Contact Number" type="tel" id="contact" name="contact" required>
+            <p>Date of Birth</p><input placeholder="Date of Birth" type="date" id="dob" name="dob">
+            <p>Grade</p><input placeholder="Your Class" type="text" id="grade" name="grade" required>
+            <p>School</p><input placeholder="Your School" type="text" id="school" name="school" required> {% endcomment %}
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</section>
+{% endblock %}

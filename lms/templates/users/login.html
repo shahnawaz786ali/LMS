@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block title %}Login Form{% endblock %}
+{% block body %}
+
+<section id="login">
+    <div class="login-form">
+        <img alt="" class="avatar" src="/static/Images/user_avatar.png">
+        <h2>Login</h2>
+        <form action="{% url 'users:login' %}" method="post">
+        {% csrf_token %}
+            <p>Username</p><input name="username" placeholder="Enter your email" type="text">
+            <p>Password</p><input name="password" placeholder="Enter your password" type="password">
+            <input type="submit" value="Login">
+            <div class="text-center my-2">
+                <p>Don't have an account yet?</p>
+                <h6><a href="{% url 'users:register' %}">Register Here</a></h6>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}
